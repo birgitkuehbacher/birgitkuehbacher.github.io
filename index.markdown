@@ -3,7 +3,7 @@ layout: mine
 title: Birgit Kühbacher
 ---
 
-![image](assets/me.jpg){: width="200" style="float: left; margin-right: 1em; border-radius: 30px"}
+![image](assets/me.jpeg){: width="200" style="float: left; margin-right: 1em; border-radius: 30px"}
 
 I am a PhD student at Helmholtz Munich under the supervision of Niki Kilbertus and Veronika Eyring. 
 My research focuses improving climate model projections with Machine Learning-based parameterizations. 
