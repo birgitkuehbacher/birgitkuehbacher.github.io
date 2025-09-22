@@ -18,20 +18,35 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Birgit Kuehbacher
+title: Birgit Kühbacher
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  I’m a PhD student in Machine Learning, researching how we can use ML to improve climate model projections. 
-  My work focuses on identifying uncertainties in predictions and developing phsically consistent neural networks. 
+  Birgit Kühbacher is a PhD student in Machine Learning, researching how we can use ML to improve climate model projections. 
+  Her work focuses on identifying uncertainties in predictions and developing physically consistent neural networks. 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ""
-github_username:  cubeme
+github_username: cubeme
 
 # Build settings
-theme: minima
+remote_theme: jekyll/minima
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
+
+minima: 
+  skin: dark
+
+  social_links:
+    - title: Google Scholar
+      icon: fa-brands fa-google-scholar
+      url: "https://scholar.google.com/citations?user=N4p5kuoAAAAJ"
+    - title: Linkedin
+      icon: fa-brands fa-linkedin
+      url: "https://www.linkedin.com/in/birgit-kuehbacher-17a462383"
+    - title: email
+      icon: fa-solid fa-envelope
+      url: "mailto:birgit.kuehbacher@helmholtz-munich.de"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
