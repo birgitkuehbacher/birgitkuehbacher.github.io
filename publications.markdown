@@ -7,7 +7,7 @@ permalink: /publications/
 <div class="page-content">
   <h1>Publications</h1>
   <p class="page-intro">
-    Publications and research projects. For a complete list visit  <a href="https://scholar.google.com/citations?user=N4p5kuoAAAAJ">Google Scholar</a>. 
+    Selected publications and research projects. For a complete list visit  <a href="https://scholar.google.com/citations?user=N4p5kuoAAAAJ">Google Scholar</a>. 
   </p>
 
       <article class="publication">
