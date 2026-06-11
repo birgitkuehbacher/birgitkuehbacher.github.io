@@ -35,8 +35,6 @@ plugins:
   - jekyll-remote-theme
 
 minima: 
-  skin: dark
-
   social_links:
     - title: Google Scholar
       icon: fa-brands fa-google-scholar
@@ -44,7 +42,7 @@ minima:
     - title: Linkedin
       icon: fa-brands fa-linkedin
       url: "https://www.linkedin.com/in/birgit-kuehbacher-17a462383"
-    - title: email
+    - title: Email
       icon: fa-solid fa-envelope
       url: "mailto:birgit.kuehbacher@helmholtz-munich.de"
 

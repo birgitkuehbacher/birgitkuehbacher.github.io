@@ -1,0 +1,550 @@
+:root {
+  color-scheme: dark;
+  --background: #171918;
+  --surface: #202321;
+  --text: #ecece8;
+  --muted: #aaada9;
+  --accent: #8fbac1;
+  --accent-dark: #b6d4d9;
+  --border: #393d3a;
+  --bibtex-background: #202321;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --background: #fbfaf7;
+  --surface: #ffffff;
+  --text: #252525;
+  --muted: #686868;
+  --accent: #315f68;
+  --accent-dark: #21464e;
+  --border: #dedbd4;
+  --bibtex-background: #f3ede2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  background-color: var(--background);
+  color: var(--text);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--accent);
+}
+
+a:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-header {
+  background: var(--background);
+  background-color: var(--background);
+  border-top: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header__inner,
+.site-container {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.site-header__inner {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-title,
+.site-title:visited {
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.site-title:hover,
+.site-title:visited:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-size: 15px;
+}
+
+.site-nav a,
+.site-nav a:visited {
+  color: var(--muted);
+}
+
+.site-nav a[aria-current="page"],
+.site-nav a[aria-current="page"]:visited {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.theme-toggle {
+  display: none;
+  width: 34px;
+  height: 34px;
+  margin-left: -8px;
+  padding: 7px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.js .theme-toggle {
+  display: inline-grid;
+  place-items: center;
+}
+
+.theme-toggle:hover {
+  border-color: var(--muted);
+  color: var(--text);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.theme-toggle__moon,
+[data-theme="dark"] .theme-toggle__sun {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle__moon {
+  display: block;
+}
+
+.site-main {
+  padding: 72px 0 96px;
+}
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: clamp(56px, 8vw, 104px);
+  align-items: start;
+}
+
+.profile-card {
+  position: sticky;
+  top: 40px;
+  text-align: center;
+}
+
+.profile-photo {
+  display: block;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto 26px;
+  object-fit: cover;
+  object-position: center 38%;
+  border-radius: 50%;
+  filter: grayscale(100%);
+}
+
+.profile-card h1 {
+  margin: 0;
+  color: var(--text);
+  font-size: 27px;
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.profile-role {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.profile-affiliation {
+  margin: 0;
+}
+
+.profile-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 25px;
+  font-size: 15px;
+}
+
+.profile-links a,
+.profile-links a:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text);
+}
+
+.profile-links .fa-solid,
+.profile-links .fa-brands {
+  width: 18px;
+  color: var(--accent);
+  text-align: center;
+}
+
+.profile-content {
+  max-width: 720px;
+}
+
+.content-section {
+  margin-bottom: 58px;
+}
+
+.content-section:first-child {
+  margin-top: -9px;
+}
+
+.content-section h2,
+.page-content h1 {
+  margin: 0 0 22px;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 31px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.intro {
+  font-size: 21px;
+  line-height: 1.65;
+}
+
+.content-section p {
+  margin: 0 0 20px;
+}
+
+.interest-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 36px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.interest-list li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.interest-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 3px;
+}
+
+.section-link {
+  flex: none;
+  font-size: 14px;
+}
+
+.publication {
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+}
+
+.publication:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.publication .publication-year {
+  margin: 0 0 5px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.publication h3 {
+  margin: 0 0 7px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.publication h3 a,
+.publication h3 a:visited {
+  color: var(--text);
+}
+
+.publication .publication-authors {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.publication .publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 15px;
+  margin: 9px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.publication-bibtex {
+  display: contents;
+}
+
+.publication-bibtex summary {
+  color: var(--accent);
+  cursor: pointer;
+  list-style: none;
+}
+
+.publication-bibtex summary::-webkit-details-marker {
+  display: none;
+}
+
+.publication-bibtex summary:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.publication-bibtex summary:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.bibtex-panel {
+  position: relative;
+  flex: 0 0 100%;
+  min-width: 0;
+  margin-top: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bibtex-background);
+  background-color: var(--bibtex-background);
+}
+
+.bibtex-panel pre {
+  margin: 0;
+  padding: 18px 52px 18px 18px;
+  overflow-x: auto;
+  background: transparent;
+  background-color: transparent;
+  color: var(--text);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.bibtex-panel code {
+  background: transparent;
+  background-color: transparent;
+  color: inherit;
+  font-family: inherit;
+}
+
+.bibtex-copy {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  padding: 7px;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--background);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.bibtex-copy:hover,
+.bibtex-copy[data-copied="true"] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.bibtex-copy:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.bibtex-copy svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.bibtex-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.page-content {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.page-intro {
+  margin: -10px 0 42px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+@media (max-width: 760px) {
+  .site-header__inner,
+  .site-container {
+    width: min(100% - 32px, 620px);
+  }
+
+  .site-main {
+    padding: 48px 0 72px;
+  }
+
+  .profile-layout {
+    grid-template-columns: 1fr;
+    gap: 52px;
+  }
+
+  .profile-card {
+    position: static;
+  }
+
+  .profile-photo {
+    width: 190px;
+    height: 190px;
+  }
+
+  .profile-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 20px;
+  }
+
+  .profile-content {
+    max-width: none;
+  }
+
+  .content-section:first-child {
+    margin-top: 0;
+  }
+
+  .intro {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+
+  .site-header__inner {
+    min-height: 64px;
+  }
+
+  .site-title {
+    font-size: 16px;
+  }
+
+  .site-nav {
+    gap: 14px;
+    font-size: 14px;
+  }
+
+  .theme-toggle {
+    width: 32px;
+    height: 32px;
+    margin-left: -4px;
+  }
+
+  .interest-list {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    display: block;
+    margin-bottom: 18px;
+  }
+
+  .section-heading h2 {
+    margin-bottom: 4px;
+  }
+}

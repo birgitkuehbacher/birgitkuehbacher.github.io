@@ -1,22 +1,139 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var theme;
 
-  {%- include head.html -%}
+        root.classList.add("js");
 
-  
+        try {
+          theme = localStorage.getItem("theme");
+        } catch (error) {
+          theme = null;
+        }
+
+        if (theme !== "light" && theme !== "dark") {
+          theme = "dark";
+        }
+
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+      })();
+    </script>
+    {%- seo -%}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css"
+    >
+    {%- feed_meta -%}
+  </head>
+
   <body>
-    <link id="fa-stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css">
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="{{ '/' | relative_url }}" {% if page.url == "/" %}aria-current="page"{% endif %}>About</a>
+          <a href="{{ '/publications/' | relative_url }}" {% if page.url == "/publications/" %}aria-current="page"{% endif %}>Publications</a>
+          <button class="theme-toggle" type="button" aria-label="Switch color theme">
+            <svg class="theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
+            </svg>
+            <svg class="theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.3 15.3A9 9 0 0 1 8.7 3.7 9 9 0 1 0 20.3 15.3Z"></path>
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </header>
 
-
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <h1>{{page.title}}</h1>
-
+    <main class="site-main" aria-label="Content">
+      <div class="site-container">
         {{ content }}
       </div>
     </main>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var toggle = document.querySelector(".theme-toggle");
 
+        function updateToggle() {
+          var nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+          toggle.setAttribute("aria-label", "Switch to " + nextTheme + " mode");
+          toggle.title = "Switch to " + nextTheme + " mode";
+        }
 
+        toggle.addEventListener("click", function () {
+          var theme = root.dataset.theme === "dark" ? "light" : "dark";
+
+          root.dataset.theme = theme;
+          root.style.colorScheme = theme;
+
+          try {
+            localStorage.setItem("theme", theme);
+          } catch (error) {
+            // The selected theme still applies when storage is unavailable.
+          }
+
+          updateToggle();
+        });
+
+        updateToggle();
+      })();
+    </script>
+    <script>
+      (function () {
+        function fallbackCopy(text) {
+          var textArea = document.createElement("textarea");
+
+          textArea.value = text;
+          textArea.setAttribute("readonly", "");
+          textArea.style.position = "fixed";
+          textArea.style.opacity = "0";
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand("copy");
+          textArea.remove();
+        }
+
+        document.addEventListener("click", function (event) {
+          var button = event.target.closest(".bibtex-copy");
+
+          if (!button) {
+            return;
+          }
+
+          var panel = button.closest(".bibtex-panel");
+          var citation = panel.querySelector("code").textContent.trim();
+          var status = panel.querySelector(".bibtex-status");
+          var copy = navigator.clipboard
+            ? navigator.clipboard.writeText(citation)
+            : Promise.resolve(fallbackCopy(citation));
+
+          copy.then(function () {
+            button.dataset.copied = "true";
+            button.setAttribute("aria-label", "BibTeX citation copied");
+            status.textContent = "BibTeX citation copied.";
+
+            window.setTimeout(function () {
+              delete button.dataset.copied;
+              button.setAttribute("aria-label", "Copy BibTeX citation");
+              status.textContent = "";
+            }, 2000);
+          }).catch(function () {
+            fallbackCopy(citation);
+            status.textContent = "BibTeX citation copied.";
+          });
+        });
+      })();
+    </script>
   </body>
-
 </html>
