@@ -31,7 +31,7 @@ title: Birgit Kühbacher
         and
         <a href="https://www.pa.op.dlr.de/~/VeronikaEyring">Veronika Eyring</a>.
         As part of the
-        <a href="https://www.cwi.nl/en/jobs/internships-for-phd-students-mfx/CWI">CWI PhD Internship Program</a>,
+        <a href="https://www.cwi.nl/en/jobs/internships-for-phd-students-mfx/">CWI PhD Internship Program</a>,
         I spent three months with the
         <a href="https://www.cwi.nl/en/research/scientific-computing/">Scientific Computing Group</a>
         in Amsterdam under the supervision of
