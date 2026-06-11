@@ -19,7 +19,7 @@
   --accent: #315f68;
   --accent-dark: #21464e;
   --border: #dedbd4;
-  --bibtex-background: #f3ede2;
+  --bibtex-background: #f3f1ee;
 }
 
 * {
@@ -170,8 +170,8 @@ a:hover {
 
 .profile-layout {
   display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
-  gap: clamp(56px, 8vw, 104px);
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 72px);
   align-items: start;
 }
 
@@ -210,31 +210,49 @@ a:hover {
   margin: 0;
 }
 
+.profile-affiliation a {
+  display: block;
+}
+
 .profile-links {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  margin-top: 25px;
-  font-size: 15px;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 20px;
 }
 
 .profile-links a,
 .profile-links a:visited {
   display: inline-flex;
+  width: 32px;
+  height: 32px;
   align-items: center;
-  gap: 9px;
-  color: var(--text);
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--accent);
+}
+
+.profile-links a:hover {
+  background: var(--surface);
+  color: var(--accent-dark);
+  text-decoration: none;
+}
+
+.profile-links a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .profile-links .fa-solid,
 .profile-links .fa-brands {
-  width: 18px;
-  color: var(--accent);
+  width: 20px;
+  font-size: 19px;
   text-align: center;
 }
 
 .profile-content {
+  min-width: 0;
   max-width: 720px;
 }
 
@@ -350,27 +368,23 @@ a:hover {
   font-weight: 600;
 }
 
-.publication-bibtex {
-  display: contents;
-}
-
-.publication-bibtex summary {
+.bibtex-toggle {
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--accent);
+  font: inherit;
+  font-weight: inherit;
   cursor: pointer;
-  list-style: none;
 }
 
-.publication-bibtex summary::-webkit-details-marker {
-  display: none;
-}
-
-.publication-bibtex summary:hover {
+.bibtex-toggle:hover {
   color: var(--accent-dark);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.publication-bibtex summary:focus-visible {
+.bibtex-toggle:focus-visible {
   border-radius: 2px;
   outline: 2px solid var(--accent);
   outline-offset: 3px;
@@ -378,7 +392,9 @@ a:hover {
 
 .bibtex-panel {
   position: relative;
-  flex: 0 0 100%;
+  width: 100%;
+  overflow-x: auto;
+  max-width: 100%;
   min-width: 0;
   margin-top: 8px;
   border: 1px solid var(--border);
@@ -387,10 +403,15 @@ a:hover {
   background-color: var(--bibtex-background);
 }
 
+.bibtex-panel[hidden] {
+  display: none;
+}
+
 .bibtex-panel pre {
   margin: 0;
+  white-space: pre;
+  overflow-x: visible;
   padding: 18px 52px 18px 18px;
-  overflow-x: auto;
   background: transparent;
   background-color: transparent;
   color: var(--text);
@@ -473,6 +494,17 @@ a:hover {
     width: min(100% - 32px, 620px);
   }
 
+  .site-nav {
+    position: static;
+    float: none;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    background-color: transparent;
+    line-height: normal;
+    text-align: left;
+  }
+
   .site-main {
     padding: 48px 0 72px;
   }
@@ -492,10 +524,7 @@ a:hover {
   }
 
   .profile-links {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px 20px;
+    gap: 14px;
   }
 
   .profile-content {
@@ -521,6 +550,7 @@ a:hover {
   }
 
   .site-title {
+    padding-right: 0;
     font-size: 16px;
   }
 

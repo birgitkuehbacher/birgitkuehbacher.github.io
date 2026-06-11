@@ -105,7 +105,17 @@
         }
 
         document.addEventListener("click", function (event) {
+          var toggle = event.target.closest(".bibtex-toggle");
           var button = event.target.closest(".bibtex-copy");
+
+          if (toggle) {
+            var panel = document.getElementById(toggle.getAttribute("aria-controls"));
+            var isOpen = toggle.getAttribute("aria-expanded") === "true";
+
+            toggle.setAttribute("aria-expanded", String(!isOpen));
+            panel.hidden = isOpen;
+            return;
+          }
 
           if (!button) {
             return;

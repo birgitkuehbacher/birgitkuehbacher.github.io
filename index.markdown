@@ -11,13 +11,13 @@ title: Birgit Kühbacher
     <p class="profile-role">PhD Student</p>
     <p class="profile-affiliation">
       <a href="https://www.helmholtz-munich.de/" target="_blank" rel="noopener">Helmholtz Munich</a>
+      <a href="https://www.tum.de/" target="_blank" rel="noopener">Technical University of Munich (TUM)</a>
     </p>
 
     <div class="profile-links" aria-label="Academic and contact links">
       {%- for entry in site.minima.social_links -%}
-        <a rel="me noopener" href="{{ entry.url }}" target="_blank">
+        <a rel="me noopener" href="{{ entry.url }}" target="_blank" aria-label="{{ entry.title }}" title="{{ entry.title }}">
           <span class="{{ entry.icon }}" aria-hidden="true"></span>
-          <span>{{ entry.title }}</span>
         </a>
       {%- endfor -%}
     </div>
@@ -107,16 +107,16 @@ title: Birgit Kühbacher
         <div class="publication-links">
           <a href="https://arxiv.org/abs/2406.03920">Paper</a>
           <a href="https://github.com/EyringMLClimateGroup/kuehbacher24ICMLA_PCMasking">Code</a>
-          <details class="publication-bibtex">
-            <summary>Bib</summary>
-            <div class="bibtex-panel">
-              <button class="bibtex-copy" type="button" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="9" y="9" width="11" height="11" rx="2"></rect>
-                  <path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"></path>
-                </svg>
-              </button>
-              <pre><code>{% raw %}@inproceedings{kuhbacher2024,
+          <button class="bibtex-toggle" type="button" aria-expanded="false" aria-controls="bibtex-icmla">Bib</button>
+        </div>
+        <div class="bibtex-panel" id="bibtex-icmla" hidden>
+          <button class="bibtex-copy" type="button" aria-label="Copy BibTeX citation" title="Copy BibTeX citation">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+              <path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"></path>
+            </svg>
+          </button>
+          <pre><code>{% raw %}@inproceedings{kuhbacher2024,
                 title = {{Towards Physically Consistent Deep Learning For Climate Model Parameterizations}},
                 booktitle = {2024 {{International Conference}} on {{Machine Learning}} and {{Applications}} ({{ICMLA}})},
                 author = {K{\"u}hbacher, Birgit and {Iglesias-Suarez}, Fernando and Kilbertus, Niki and Eyring, Veronika},
@@ -124,9 +124,7 @@ title: Birgit Kühbacher
                 pages = {280--287},
                 doi = {10.1109/ICMLA61862.2024.00044},
               }{% endraw %}</code></pre>
-              <span class="bibtex-status" aria-live="polite"></span>
-            </div>
-          </details>
+          <span class="bibtex-status" aria-live="polite"></span>
         </div>
       </article>
 
