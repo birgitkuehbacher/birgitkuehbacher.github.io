@@ -40,7 +40,7 @@ title: Birgit Kühbacher
 
       <p>
         My research lies at the intersection of machine learning and Earth system science.
-        I work on machine learning for weather forecasting and climate modeling, with a particular focus on uncertainty quantification, stochastic modeling, and the representation of unresolved processes.
+        I work on machine learning for weather forecasting and climate modeling, with a particular focus on uncertainty quantification, probabilistic machine learning, and the representation of unresolved processes.
         More broadly, I am interested on stochastic and data-driven model components, hybrid physical–machine learning approaches, and the long-term stability and generalization of machine learning methods in Earth system modeling.
       </p>
 

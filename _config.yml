@@ -21,8 +21,8 @@
 title: Birgit Kühbacher
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Birgit Kühbacher is a PhD student in Machine Learning, researching how we can use ML to improve climate model projections. 
-  Her work focuses on identifying uncertainties in predictions and developing physically consistent neural networks. 
+  Birgit Kühbacher is a PhD student in machine learning with a focus on applications in weather and climate science. 
+  Her research focuses on uncertainty quantification, probabilistic machine learning, and data-driven methods for representing unresolved processes in weather and climate models.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ""
