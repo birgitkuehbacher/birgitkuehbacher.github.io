@@ -5,7 +5,7 @@ title: Birgit Kühbacher
 
 <div class="profile-layout">
   <aside class="profile-card">
-    <img class="profile-photo" src="{{ '/assets/me.jpeg' | relative_url }}" alt="Portrait of Birgit Kühbacher">
+    <img class="profile-photo" src="{{ '/assets/me_fishbowl.jpg' | relative_url }}" alt="Photo">
 
     <h1>Birgit Kühbacher</h1>
     <p class="profile-role">PhD Student</p>
