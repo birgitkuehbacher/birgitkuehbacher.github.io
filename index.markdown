@@ -101,7 +101,7 @@ title: Birgit Kühbacher
 
       <article class="publication">
         <p class="publication-year">2024 ICMLA</p>
-        <h3>Towards physically consistent deep learning for climate model parameterizations</h3>
+        <h3>Towards Physically Consistent Deep Learning for Climate Model Parameterizations</h3>
         <p class="publication-authors"><strong>Birgit Kühbacher</strong>, Fernando Iglesias-Suarez, Niki Kilbertus, Veronika Eyring</p>
         <p> in 2024 International Conference on Machine Learning and Applications (ICMLA) </p>
         <div class="publication-links">
