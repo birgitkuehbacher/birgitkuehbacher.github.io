@@ -189,7 +189,6 @@ a:hover {
   object-fit: cover;
   object-position: center 38%;
   border-radius: 50%;
-  /* filter: grayscale(100%); */
 }
 
 .profile-card h1 {
